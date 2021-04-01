@@ -82,11 +82,29 @@ export default {
   
   value() {
   // ;wep storage APIでの取得。これをVuex-persistedstate用に変える
+  this.$store.commit(this.day[]),
   this.aimdata.forEach(function(data,index){
-      if(this.day!=localStorage.getItem('day')){
-        localStorage.setItem(this.day,'data')
+      if(this.day!=$store.state.day){
+        this.$store.state.{{this.day}}.commit.push(data)
+        
       }
-    })
+
+    });
+    return{
+    aimdata:[{
+      aimtime:"",
+      aimcount:"",
+      aimaccuracy:"",
+      trackingtime:"",
+      trackingcount:"",
+      trackingaccuracy:"",
+      flicktime:"",
+      flickcount:"",
+      flickaccuracy:"",
+      
+    }]
+  }
+
   }
 }
 </script>

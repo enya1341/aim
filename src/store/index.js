@@ -14,7 +14,6 @@ export default new Vuex.Store({
   modules: {
         test
     },
-    strict: true,
     plugins: [createPersistedState({
       key: 'xddgooooood',
       paths: ['test'],
