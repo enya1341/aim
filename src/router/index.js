@@ -9,12 +9,14 @@ const routes = [
   {
     path: '/aim',
     name: 'aimbot',
-    component: Home
+    component: Home,
+    props: true,
   },
   {
     path: '/data',
-    name: 'Data',
-    component: About
+    name: 'data',
+    component: About,
+    props: true,
   }
 ]
 

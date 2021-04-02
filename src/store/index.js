@@ -6,8 +6,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    aimdatas: [],
+    count:0
   },
   mutations: {
+    aimMutation(state, aimdatabox) {
+      state.aimdatas[state.count] = aimdatabox
+      state.count =+ 1
+    }
   },
   actions: {
   },
@@ -16,7 +22,7 @@ export default new Vuex.Store({
     },
     plugins: [createPersistedState({
       key: 'xddgooooood',
-      paths: ['test'],
+      paths: ['state.aimdatas'],
       storage: window.localStorage
     })]
   

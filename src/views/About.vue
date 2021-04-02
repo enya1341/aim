@@ -4,7 +4,8 @@
 
 
 <template>
-  <div id="data">
+  <div id="databox">
+    <h1>kovaakでの日記帳。毎日やったタイムと回数と精度を記録しましょう</h1>
     <table>
       <tr>
         <th>日付</th>
@@ -12,19 +13,19 @@
         <th>追いエイム:</th>
         <th>フリックエイム:</th>
       </tr>
-      <tr v-for="(aimdata,index) in localStorage.getItem('xddgooooood')" :key="index" class=day>
-        <th>{{aimdata.day}}</th>
-        <td>{{aimdata.aimtime}}</td>
-        <td>{{aimdata.aimcount}}</td>
-        <td>{{aimdata.aimaccurac}}</td>
+      <tr v-for="(aimdata,index) in $store.state.aimdatas" :key="index">    //stateに保存されているデータを取得して書き込み。上手くデータを送られてきてない。取得は多分これで出来てるはずだからできてないのは
+        <th>{{aimdata[index].day}}</th>
+        <td>{{aimdata[index].aimtime}}</td>
+        <td>{{aimdata[index].aimcount}}</td>
+        <td>{{aimdata[index].aimaccuracy}}</td>
         
-        <td>{{aimdata.trackingtime}}</td>
-        <td>{{aimdata.trackingcount}}</td>
-        <td>{{aimdata.trackingaccuracy}}</td>
+        <td>{{aimdata[index].trackingtime}}</td>
+        <td>{{aimdata[index].trackingcount}}</td>
+        <td>{{aimdata[index].trackingaccuracy}}</td>
         
-        <td>{{aimdata.flicktime}}</td>
-        <td>{{aimdata.flickcount}}</td>
-        <td>{{aimdata.flickaccuracy}}</td>
+        <td>{{aimdata[index].flicktime}}</td>
+        <td>{{aimdata[index].flickcount}}</td>
+        <td>{{aimdata[index].flickaccuracy}}</td>
       </tr>
     </table>
   </div>
