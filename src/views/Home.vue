@@ -80,29 +80,32 @@ export default {
     
   },
   
-  value() {
-  let aimdatabox=[];   // 送信用配列用意
-  this.aimdata[0].forEach(function(data){
+  methods:{
+    value() {
+      let aimdatabox=[];   // 送信用配列用意
+      this.aimdata.forEach(function(data){
         aimdatabox.push(data)   // 送信用配列にデータを挿入（ここで連想配列としてそのまま代入されているか不明）
 
-    });
-  if(this.day!=this.$store.state.aimdatas[this.day]){   //今日の日付と同じ日付のデータがあるかどうかの確認。複数あった場合全部と比較してくれるのかな？
-      this.$store.commit('aimMutation',aimdatabox)    //ここでcommitしてデータを送る。現状送れてなさそう？
+      });
+      console.log(aimdatabox)//一応データは入れれてる
+      if(this.day!=this.$store.state.aimdatas[this.day]){   //今日の日付と同じ日付のデータがあるかどうかの確認。複数あった場合全部と比較してくれるのかな？
+        this.$store.commit('aimMutation',aimdatabox[0])    //ここでcommitしてデータを送る。現状送れてなさそう？
+      }
+      console.log(this.$store.state.aimdatas)   //確認送れてない
+      return{
+        aimdata:[{    //ここでデータを削除。でもinputにデータ入ったままだからここでリロードさせてinput消す？このあとデータが送信されたか確認するためのウィンドウを表示させたいし
+          aimtime:"",
+          aimcount:"",
+          aimaccuracy:"",
+          trackingtime:"",
+          trackingcount:"",
+          trackingaccuracy:"",
+          flicktime:"",
+          flickcount:"",
+          flickaccuracy:""
+        }]
+      }
     }
-    return{
-    aimdata:[{    //ここでデータを削除。でもinputにデータ入ったままだからここでリロードさせてinput消す？このあとデータが送信されたか確認するためのウィンドウを表示させたいし
-      aimtime:"",
-      aimcount:"",
-      aimaccuracy:"",
-      trackingtime:"",
-      trackingcount:"",
-      trackingaccuracy:"",
-      flicktime:"",
-      flickcount:"",
-      flickaccuracy:""
-    }]
-  }
-
   }
 }
 </script>

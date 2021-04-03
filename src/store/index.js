@@ -11,7 +11,7 @@ export default new Vuex.Store({
   },
   mutations: {
     aimMutation(state, aimdatabox) {
-      state.aimdatas[state.count] = aimdatabox
+      state.aimdatas[state.count] = aimdatabox[0]
       state.count =+ 1
     }
   },
