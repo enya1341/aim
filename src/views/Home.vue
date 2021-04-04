@@ -89,7 +89,7 @@ export default {
       });
       console.log(aimdatabox)//一応データは入れれてる
       if(this.day!=this.$store.state.aimdatas[this.day]){   //今日の日付と同じ日付のデータがあるかどうかの確認。複数あった場合全部と比較してくれるのかな？
-        this.$store.commit('aimMutation',aimdatabox[0])    //ここでcommitしてデータを送る。現状送れてなさそう？
+        this.$store.commit('aimMutation',aimdatabox)    //ここでcommitしてデータを送る。現状送れてなさそう？
       }
       console.log(this.$store.state.aimdatas)   //確認送れてない
       return{
